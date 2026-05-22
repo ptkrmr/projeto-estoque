@@ -3,127 +3,99 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>App Estoque Júlia | Login</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>App Estoque Prof</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     
     <style>
-      :root {
-        --cafe-escuro: #6F4E37;
-        --cafe-medio: #A67B5B;
-        --bege-claro: #ECB176;
-        --creme: #FED8B1;
-        --fundo: #FFF8E1;
-      }
-
       body {
-        font-family: 'Poppins', sans-serif;
-        background-color: var(--fundo);
-        height: 100vh;
+        background: #f7f7f7;
+        font-family: Arial, sans-serif;
         display: flex;
-        align-items: center;
         justify-content: center;
+        align-items: center;
+        height: 100vh;
         margin: 0;
-        overflow: hidden;
-        position: relative;
       }
-
-      /* Decoração de Gatinhos ao Fundo */
-      .cat-bg {
-        position: absolute;
-        font-size: 2rem;
-        color: rgba(111, 78, 55, 0.1);
-        z-index: -1;
-        user-select: none;
-      }
-
-      /* Card de Login */
-      .login-card {
-        background: white;
-        padding: 2.5rem;
-        border-radius: 20px;
-        box-shadow: 0 10px 25px rgba(111, 78, 55, 0.1);
+      .login-container {
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 40px;
         width: 100%;
         max-width: 400px;
-        border: 2px solid var(--creme);
       }
-
-      .login-card h2 {
-        color: var(--cafe-escuro);
-        font-weight: 600;
+      .login-container h1 {
         text-align: center;
-        margin-bottom: 1.5rem;
+        margin-bottom: 20px;
+        font-size: 1.75rem;
+        color: #333;
       }
-
       .form-label {
-        color: var(--cafe-medio);
-        font-weight: 500;
+        font-weight: bold;
+        color: #555;
       }
-
       .form-control {
-        border-radius: 10px;
-        border: 1px solid var(--bege-claro);
-        padding: 0.7rem;
+        border-radius: 8px;
+        padding: 12px;
+        font-size: 1rem;
+        border: 1px solid #ddd;
+        margin-bottom: 15px;
+        transition: border-color 0.3s ease;
       }
-
       .form-control:focus {
-        border-color: var(--cafe-medio);
-        box-shadow: 0 0 0 0.25rem rgba(166, 123, 91, 0.25);
+        border-color: #007bff;
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
       }
-
-      .btn-login {
-        background-color: var(--cafe-escuro);
-        border: none;
-        border-radius: 10px;
-        padding: 0.8rem;
-        font-weight: 600;
-        color: white;
-        transition: 0.3s;
+      .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+        font-size: 1.1rem;
+        padding: 12px 20px;
+        border-radius: 8px;
         width: 100%;
-        margin-top: 1rem;
       }
-
-      .btn-login:hover {
-        background-color: var(--cafe-medio);
-        transform: translateY(-2px);
+      .btn-primary:hover {
+        background-color: #0056b3;
+        border-color: #0056b3;
       }
-
-      .cat-icon-header {
-        font-size: 3rem;
-        color: var(--cafe-medio);
-        display: block;
-        text-align: center;
-        margin-bottom: 10px;
+      .text-center {
+        margin-top: 15px;
+      }
+      .text-center a {
+        text-decoration: none;
+        color: #007bff;
+        font-size: 0.9rem;
+      }
+      .text-center a:hover {
+        text-decoration: underline;
       }
     </style>
   </head>
   <body>
+    <div class="login-container">
+      <h1>Bem-vindo ao App Estoque Professor</h1>
 
-    <i class="fas fa-cat cat-bg" style="top: 10%; left: 10%; transform: rotate(-15deg);"></i>
-    <i class="fas fa-paw cat-bg" style="top: 20%; right: 15%; transform: rotate(20deg);"></i>
-    <i class="fas fa-cat cat-bg" style="bottom: 15%; left: 5%; transform: rotate(10deg);"></i>
-    <i class="fas fa-paw cat-bg" style="bottom: 10%; right: 10%; transform: rotate(-25deg);"></i>
-
-    <div class="login-card">
-      <i class="fas fa-cat cat-icon-header"></i>
-      <h2>Estoque da Júlia</h2>
-      
       <form method="POST" action="Controllers/ControllerLogin.php">
         <div class="mb-3">
           <label for="inputEmail" class="form-label">Email</label>
-          <input type="email" name="email" class="form-control" id="inputEmail" placeholder="seu@email.com" required>
+          <input type="email" name="email" required class="form-control" id="inputEmail" placeholder="Digite seu email">
         </div>
         
-        <div class="mb-4">
-          <label for="inputPassword2" class="form-label">Senha</label>
-          <input type="password" name="senha" class="form-control" id="inputPassword2" placeholder="••••••••" required>
+        <div class="mb-3">
+          <label for="inputPassword" class="form-label">Senha</label>
+          <input type="password" name="senha" required class="form-control" id="inputPassword" placeholder="Digite sua senha">
         </div>
         
-        <button type="submit" class="btn btn-login">Entrar no Sistema</button>
+        <button type="submit" class="btn btn-primary">Entrar</button>
       </form>
-    </div>
 
+      <div class="text-center">
+        <a href="#">Esqueceu a senha?</a>
+      </div>
+    </div>
+  </body>
+</html>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
